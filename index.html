@@ -1,110 +1,105 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SG Deweloper - Twoja Strona</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <!-- Custom CSS -->
-  <style>
-    /* Podstawowe style */
-    body {
-      padding-top: 56px; /* miejsce na navbar fixed */
-    }
-    /* Sekcja Hero */
-    #hero {
-      background: url('hero-image.jpg') no-repeat center center/cover;
-      height: 100vh;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      text-align: center;
-    }
-    /* Sekcja stopki */
-    footer {
-      background: #333;
-      color: #fff;
-      padding: 20px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SG Deweloper</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Nawigacja -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="#">SG Deweloper</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Przełącz nawigację">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">O nas</a></li>
-        <li class="nav-item"><a class="nav-link" href="#offer">Oferta</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <!-- Sekcja Hero -->
-  <header id="hero">
-    <div class="container">
-      <h1>Witamy w SG Deweloper</h1>
-      <p>Realizujemy marzenia o nowoczesnym budownictwie</p>
-      <a href="#offer" class="btn btn-primary">Sprawdź ofertę</a>
-    </div>
-  </header>
-
-  <!-- Sekcja O nas -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="mb-4">O nas</h2>
-      <p>Tu wstaw opis firmy, jej historię, misję oraz wartości, które przyświecają Twoim działaniom.</p>
-    </div>
-  </section>
-
-  <!-- Sekcja Oferta -->
-  <section id="offer" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="mb-4">Oferta</h2>
-      <p>Opisz tutaj oferowane usługi, projekty oraz korzyści płynące ze współpracy z Twoją firmą.</p>
-    </div>
-  </section>
-
-  <!-- Sekcja Kontakt -->
-  <section id="contact" class="py-5">
-    <div class="container">
-      <h2 class="mb-4">Kontakt</h2>
-      <form>
-        <div class="form-group">
-          <label for="name">Imię</label>
-          <input type="text" class="form-control" id="name" placeholder="Wpisz swoje imię">
+    <!-- Pasek kontaktowy -->
+    <div class="top-bar">
+        <div class="container">
+            <span>📞 +48 22 123 45 67 | ✉ kontakt@sgdeweloper.pl</span>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Wpisz swój email">
-        </div>
-        <div class="form-group">
-          <label for="message">Wiadomość</label>
-          <textarea class="form-control" id="message" rows="3" placeholder="Twoja wiadomość"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Wyślij</button>
-      </form>
     </div>
-  </section>
 
-  <!-- Stopka -->
-  <footer class="text-center">
-    <div class="container">
-      <p>&copy; 2025 SG Deweloper. Wszelkie prawa zastrzeżone.</p>
-    </div>
-  </footer>
+    <!-- MENU GŁÓWNE -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#"><img src="images/logo.png" alt="SG Deweloper"></a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">O nas</a></li>
+                    <li><a href="#investments">Inwestycje</a></li>
+                    <li><a href="#realizations">Realizacje</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">&#9776;</div>
+        </div>
+    </header>
 
-  <!-- Bootstrap JS oraz zależności -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Tworzymy przestrzenie dla Ciebie</h1>
+            <p>Nowoczesne i komfortowe inwestycje deweloperskie.</p>
+            <a href="#investments" class="btn">Zobacz nasze inwestycje</a>
+        </div>
+    </section>
+
+    <!-- SEKCJA O NAS -->
+    <section id="about">
+        <div class="container">
+            <h2>O nas</h2>
+            <div class="about-content">
+                <img src="images/about.jpg" alt="O nas">
+                <p>SG Deweloper to firma specjalizująca się w nowoczesnym budownictwie mieszkaniowym i komercyjnym. Nasze projekty łączą elegancję, funkcjonalność i innowacyjne rozwiązania.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKCJA INWESTYCJI -->
+    <section id="investments">
+        <h2>Nasze Inwestycje</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="images/investment1.jpg" alt="Inwestycja 1">
+                <h3>Osiedle Zielone</h3>
+            </div>
+            <div class="card">
+                <img src="images/investment2.jpg" alt="Inwestycja 2">
+                <h3>Wille Premium</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKCJA REALIZACJI -->
+    <section id="realizations">
+        <h2>Nasze Realizacje</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="images/realization1.jpg" alt="Realizacja 1">
+                <h3>Nowoczesne apartamenty</h3>
+            </div>
+            <div class="card">
+                <img src="images/realization2.jpg" alt="Realizacja 2">
+                <h3>Kompleks biurowy</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKCJA KONTAKTU -->
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <form>
+            <input type="text" placeholder="Twoje imię" required>
+            <input type="email" placeholder="Twój e-mail" required>
+            <textarea placeholder="Twoja wiadomość"></textarea>
+            <button type="submit">Wyślij</button>
+        </form>
+    </section>
+
+    <!-- STOPKA -->
+    <footer>
+        <p>&copy; 2024 SG Deweloper. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
 </body>
 </html>
