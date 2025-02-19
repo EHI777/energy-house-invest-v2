@@ -81,26 +81,28 @@ nav {
     z-index: 2;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    font-weight: bold;
+/* SEKCJA O NAS */
+#about .about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
 }
 
-.hero p {
-    font-size: 1.5rem;
+.about-text {
+    width: 60%;
 }
 
-.hero .btn {
-    background: white;
-    color: black;
-    padding: 15px 30px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 5px;
+.about-agent {
+    width: 30%;
+    text-align: center;
 }
 
-.hero .btn:hover {
-    background: gray;
+.about-agent img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 /* SEKCJA KONTAKTU */
@@ -120,4 +122,3 @@ button {
 button:hover {
     background: gray;
 }
-
