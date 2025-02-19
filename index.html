@@ -2,109 +2,79 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SG Deweloper - Twoja Strona</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <!-- Custom CSS -->
+  <title>Wizualizacja Osiedla 3D</title>
   <style>
-    /* Podstawowe style */
-    body {
-      padding-top: 56px; /* miejsce na navbar fixed */
-    }
-    /* Sekcja Hero */
-    #hero {
-      background: url('hero-image.jpg') no-repeat center center/cover;
-      height: 100vh;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      text-align: center;
-    }
-    /* Sekcja stopki */
-    footer {
-      background: #333;
-      color: #fff;
-      padding: 20px 0;
-    }
+    body { margin: 0; }
+    canvas { display: block; }
   </style>
 </head>
 <body>
-  <!-- Nawigacja -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="#">SG Deweloper</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Przełącz nawigację">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">O nas</a></li>
-        <li class="nav-item"><a class="nav-link" href="#offer">Oferta</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
-      </ul>
-    </div>
-  </nav>
+  <!-- Ładujemy bibliotekę Three.js z CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Utworzenie sceny, kamery i renderera
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-  <!-- Sekcja Hero -->
-  <header id="hero">
-    <div class="container">
-      <h1>Witamy w SG Deweloper</h1>
-      <p>Realizujemy marzenia o nowoczesnym budownictwie</p>
-      <a href="#offer" class="btn btn-primary">Sprawdź ofertę</a>
-    </div>
-  </header>
+    // Mapowanie statusów domów na kolory (w formacie szesnastkowym)
+    const houseColorMap = {
+      sold: 0xff0000,      // czerwony
+      reserved: 0xffff00,  // żółty
+      available: 0x00ff00  // zielony
+    };
 
-  <!-- Sekcja O nas -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="mb-4">O nas</h2>
-      <p>Tu wstaw opis firmy, jej historię, misję oraz wartości, które przyświecają Twoim działaniom.</p>
-    </div>
-  </section>
+    // Przykładowe dane domów – każdy obiekt zawiera status oraz pozycję
+    const housesData = [
+      { id: 1, status: 'sold', position: { x: -2, y: 0, z: 0 } },
+      { id: 2, status: 'reserved', position: { x: 0, y: 0, z: 0 } },
+      { id: 3, status: 'available', position: { x: 2, y: 0, z: 0 } }
+    ];
 
-  <!-- Sekcja Oferta -->
-  <section id="offer" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="mb-4">Oferta</h2>
-      <p>Opisz tutaj oferowane usługi, projekty oraz korzyści płynące ze współpracy z Twoją firmą.</p>
-    </div>
-  </section>
+    // Funkcja tworząca dom (reprezentowany jako sześcian) na podstawie danych
+    function createHouse(house) {
+      // Geometria sześcianu
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      // Materiał z kolorem ustawionym według statusu
+      const material = new THREE.MeshBasicMaterial({
+        color: houseColorMap[house.status]
+      });
+      // Utworzenie siatki (mesh) i ustawienie pozycji
+      const cube = new THREE.Mesh(geometry, material);
+      cube.position.set(house.position.x, house.position.y, house.position.z);
+      return cube;
+    }
 
-  <!-- Sekcja Kontakt -->
-  <section id="contact" class="py-5">
-    <div class="container">
-      <h2 class="mb-4">Kontakt</h2>
-      <form>
-        <div class="form-group">
-          <label for="name">Imię</label>
-          <input type="text" class="form-control" id="name" placeholder="Wpisz swoje imię">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Wpisz swój email">
-        </div>
-        <div class="form-group">
-          <label for="message">Wiadomość</label>
-          <textarea class="form-control" id="message" rows="3" placeholder="Twoja wiadomość"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Wyślij</button>
-      </form>
-    </div>
-  </section>
+    // Dodajemy wszystkie domy do sceny
+    housesData.forEach(house => {
+      const houseMesh = createHouse(house);
+      scene.add(houseMesh);
+    });
 
-  <!-- Stopka -->
-  <footer class="text-center">
-    <div class="container">
-      <p>&copy; 2025 SG Deweloper. Wszelkie prawa zastrzeżone.</p>
-    </div>
-  </footer>
+    // Ustawiamy pozycję kamery, aby cała scena była widoczna
+    camera.position.z = 5;
 
-  <!-- Bootstrap JS oraz zależności -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    // Funkcja animacji
+    function animate() {
+      requestAnimationFrame(animate);
+      // Możesz dodać animację (np. obracanie obiektów) w tym miejscu
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Obsługa zmiany rozmiaru okna
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
 </body>
 </html>
