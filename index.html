@@ -4,120 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SG Deweloper</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="bootstrap.bundle.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 <body>
 
     <!-- Pasek kontaktowy -->
-    <div class="top-bar">
+    <header class="top-bar">
         <div class="container">
-            <span>📞 +48 76 759 20 67 | ✉ sprzedaz@sgdeweloper.pl</span>
-        </div>
-    </div>
-
-    <!-- MENU GŁÓWNE -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="#"><img src="images/logo.png" alt="SG Deweloper"></a>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#about">O osiedlu</a></li>
-                    <li><a href="#location">Lokalizacja</a></li>
-                    <li><a href="#houses">Wybierz swój dom</a></li>
-                    <li><a href="#investor">Inwestor</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
-                </ul>
-            </nav>
+            <p>📞 <a href="tel:+48767592067">+48 76 759 20 67</a> | ✉ <a href="mailto:sprzedaz@sgdeweloper.pl">sprzedaz@sgdeweloper.pl</a></p>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- Menu główne -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="logo.png" alt="SG Deweloper"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">O osiedlu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#location">Lokalizacja</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#homes">Wybierz dom</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#investor">Inwestor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
+        <div class="container text-center">
             <h1>Osiedle Wierzbowe</h1>
             <p>Kameralne osiedle domów z ogrodami w zabudowie jedno i dwulokalowej.</p>
-            <a href="#houses" class="btn">Wybierz swój dom</a>
+            <a href="#homes" class="btn btn-light">Wybierz swój dom</a>
+            <a href="#about" class="btn btn-outline-light">O osiedlu</a>
         </div>
     </section>
 
-    <!-- SEKCJA O OSIEDLU -->
-    <section id="about">
+    <!-- Sekcja O Osiedlu -->
+    <section id="about" class="section">
         <div class="container">
             <h2>O osiedlu</h2>
-            <p>Osiedle Wierzbowe to kameralne osiedle domów jednorodzinnych w zabudowie szeregowej.</p>
+            <p>Osiedle Wierzbowe to wyjątkowe miejsce dla rodzin, położone w otoczeniu zieleni.</p>
+            <img src="tree.png" class="img-fluid">
         </div>
     </section>
 
-    <!-- SEKCJA LOKALIZACJI -->
-    <section id="location">
+    <!-- Lokalizacja -->
+    <section id="location" class="section">
         <div class="container">
             <h2>Lokalizacja</h2>
             <p>Szklary Górne 68-69, 59-335 Lubin</p>
-            <div class="map">
-                <iframe src="https://maps.google.com/?q=Szklary+Górne+68-69,59-335+Lubin&output=embed"></iframe>
-            </div>
+            <iframe src="https://maps.google.com/?q=Szklary+Górne+68-69,59-335+Lubin&output=embed"></iframe>
         </div>
     </section>
 
-    <!-- SEKCJA WYBORU DOMU -->
-    <section id="houses">
-        <h2>Dostępne domy</h2>
-        <table>
-            <tr>
-                <th>Nr Lokalu</th>
-                <th>Powierzchnia</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>134.34m²</td>
-                <td>Sprzedane</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>116.37m²</td>
-                <td>Sprzedane</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>116.37m²</td>
-                <td>Wolne</td>
-            </tr>
-            <tr>
-                <td>38</td>
-                <td>116.37m²</td>
-                <td>Wolne</td>
-            </tr>
-        </table>
-    </section>
-
-    <!-- SEKCJA KONTAKTU -->
-    <section id="contact">
-        <h2>Kontakt</h2>
-        <div class="contact-info">
-            <p><strong>Edyta Marszałek - Maciocha</strong></p>
-            <p>Dział sprzedaży</p>
-            <p>📞 +48 76 759 20 67</p>
-            <p>✉ sprzedaz@sgdeweloper.pl</p>
+    <!-- Wybór domu -->
+    <section id="homes" class="section">
+        <div class="container">
+            <h2>Dostępne domy</h2>
+            <table class="table table-dark">
+                <tr>
+                    <th>Nr lokalu</th>
+                    <th>Powierzchnia</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>134.34m²</td>
+                    <td>Wolne</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>116.37m²</td>
+                    <td>Sprzedane</td>
+                </tr>
+            </table>
         </div>
-        <form>
-            <input type="text" placeholder="Twoje imię" required>
-            <input type="email" placeholder="Twój e-mail" required>
-            <textarea placeholder="Twoja wiadomość"></textarea>
-            <label>
-                <input type="checkbox" required> Wyrażam zgodę na przetwarzanie moich danych osobowych.
-            </label>
-            <button type="submit">Wyślij</button>
-        </form>
     </section>
 
-    <!-- STOPKA -->
-    <footer>
-        <p>&copy; 2024 SG Deweloper. Wszelkie prawa zastrzeżone.</p>
+    <!-- Kontakt -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p>Edyta Marszałek - Maciocha | Dział sprzedaży</p>
+            <p>📞 <a href="tel:+48767592067">+48 76 759 20 67</a></p>
+            <p>✉ <a href="mailto:sprzedaz@sgdeweloper.pl">sprzedaz@sgdeweloper.pl</a></p>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 SG Deweloper. Wszelkie prawa zastrzeżone.</p>
+        </div>
     </footer>
 
 </body>
